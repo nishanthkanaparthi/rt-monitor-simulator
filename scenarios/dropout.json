@@ -1,0 +1,8 @@
+{
+    "name": "dropout",
+    "faults": [
+      { "tick": 2, "kind": "dropout", "value": 1 },
+      { "tick": 4, "kind": "dropout", "value": 1 }
+    ]
+  }
+  

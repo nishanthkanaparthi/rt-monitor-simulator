@@ -1,0 +1,7 @@
+{
+  "name": "demo",
+  "faults": [
+    { "tick": 2, "kind": "sensor_spike", "value": 900 },
+    { "tick": 4, "kind": "dropout", "value": 1 }
+  ]
+}

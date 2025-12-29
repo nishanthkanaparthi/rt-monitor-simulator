@@ -1,0 +1,40 @@
+# rt_monitor_sim
+
+A small, deterministic simulator that mimics how real machines monitor themselves and raise/clear alarms from sensor signals.
+
+Real automated systems often watch sensor data and decide whether a “bad reading” is just noise (a brief spike) or a real fault (a sustained condition). This project implements that decision logic as a state machine and includes tests + scenario replays to prove the behavior stays correct over time.
+
+## What it simulates
+
+A sensor can:
+- **Spike** above a threshold (noise vs real fault)
+- **Drop out** (missing/invalid reading)
+- Return to **nominal** values
+
+The monitor uses debouncing to decide:
+- Raise an alarm only after **N consecutive alarm conditions**
+- Clear an alarm only after **M consecutive nominal conditions**
+- Treat dropout as an immediate alarm condition (configurable behavior by scenario)
+
+The state machine emits events such as:
+- `ALARM_PENDING_RAISE`, `ALARM_RAISED`
+- `ALARM_PENDING_CLEAR`, `ALARM_CLEARED`
+- `STATE_TRANSITION` (observability)
+- `METRICS` summary at the end of a run
+
+## Project structure
+
+- `src/app/` — alarm logic + state machine
+- `src/main.py` — CLI entrypoint
+- `scenarios/` — JSON scenario files (fault injections by tick)
+- `tests/` — unit + invariants + replay/scenario tests
+
+## Install / setup
+
+From the repo root:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+

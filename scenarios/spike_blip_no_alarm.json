@@ -1,0 +1,6 @@
+{
+  "name": "spike_blip_no_alarm",
+  "faults": [
+    { "tick": 1, "kind": "sensor_spike", "value": 1200 }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "clear_interrupted_by_spike",
+  "faults": [
+    { "tick": 0, "kind": "sensor_spike", "value": 1200 },
+    { "tick": 1, "kind": "sensor_spike", "value": 1200 },
+
+    { "tick": 3, "kind": "sensor_spike", "value": 1200 },
+    { "tick": 4, "kind": "sensor_spike", "value": 1200 }
+  ]
+}

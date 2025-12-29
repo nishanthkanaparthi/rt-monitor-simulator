@@ -1,0 +1,8 @@
+{
+    "name": "sensor_spike",
+    "faults": [
+      { "tick": 1, "kind": "sensor_spike", "value": 1200 },
+      { "tick": 3, "kind": "sensor_spike", "value": 900 }
+    ]
+  }
+  
